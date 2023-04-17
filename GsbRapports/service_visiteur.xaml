@@ -1,0 +1,30 @@
+﻿<Window x:Class="GsbRapports.service_visiteur"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GsbRapports"
+        mc:Ignorable="d"
+        Title="service_visiteur" Height="450" Width="800">
+    <Grid> 
+        <DockPanel Grid.ColumnSpan="4">
+            <Menu DockPanel.Dock="Top" x:Name="DckMenu" >
+                <MenuItem Header="_Fichier">
+                    <MenuItem Header="_Quitter"/>
+                </MenuItem>
+
+                <MenuItem Header="_tools">
+                    <MenuItem Header="_Recharger" Click="RechargerMenue" />
+                    <MenuItem Header="_Modifier" Click="modifierMenue" />
+                    <MenuItem Header="_Ajouter" Click="AjouterMenue" />
+                </MenuItem>
+
+            </Menu>
+
+
+        </DockPanel>
+
+        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,24,0,0"/>
+
+        </Grid>
+</Window>
