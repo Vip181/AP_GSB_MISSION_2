@@ -65,6 +65,9 @@
     <Compile Include="majFamilleWindow.xaml.cs">
       <DependentUpon>majFamilleWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modifier_visiteur.xaml.cs">
+      <DependentUpon>Modifier_visiteur.xaml</DependentUpon>
+    </Compile>
     <Compile Include="service_visiteur.xaml.cs">
       <DependentUpon>service_visiteur.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
     <Page Include="majFamilleWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modifier_visiteur.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="service_visiteur.xaml">
       <SubType>Designer</SubType>

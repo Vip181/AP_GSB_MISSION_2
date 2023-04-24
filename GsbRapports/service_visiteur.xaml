@@ -6,25 +6,35 @@
         xmlns:local="clr-namespace:GsbRapports"
         mc:Ignorable="d"
         Title="service_visiteur" Height="450" Width="800">
-    <Grid> 
-        <DockPanel Grid.ColumnSpan="4">
-            <Menu DockPanel.Dock="Top" x:Name="DckMenu" >
-                <MenuItem Header="_Fichier">
-                    <MenuItem Header="_Quitter"/>
-                </MenuItem>
+    <Grid Margin="0,0,0,0">
 
-                <MenuItem Header="_tools">
-                    <MenuItem Header="_Recharger" Click="RechargerMenue" />
-                    <MenuItem Header="_Modifier" Click="modifierMenue" />
-                    <MenuItem Header="_Ajouter" Click="AjouterMenue" />
-                </MenuItem>
+        <Menu DockPanel.Dock="Bottom" x:Name="DckMenu" Margin="0,0,0,415" >
+            <MenuItem Header="_Fichier">
+                <MenuItem Header="_Quitter"/>
+            </MenuItem>
 
-            </Menu>
+            <MenuItem Header="_tools">
+                <MenuItem Header="_Recharger" Click="RechargerMenue" />
+                <MenuItem Header="_Modifier" Click="modifierMenue" />
+                <MenuItem Header="_Ajouter" Click="AjouterMenue" />
+            </MenuItem>
+
+        </Menu>
 
 
-        </DockPanel>
 
-        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,24,0,0"/>
 
-        </Grid>
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="373" VerticalAlignment="Top" Margin="0,24,0,0" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Nom" />
+                <DataGridTextColumn Header="Prénom"/>
+                <!--The Email property contains a URI.  For example "mailto:lucy0@adventure-works.com"-->
+                <DataGridTextColumn Header="Adresse"  />
+                <DataGridTextColumn Header="Code postale"  />
+                <DataGridTextColumn Header="Ville" />
+                
+               
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </Window>
