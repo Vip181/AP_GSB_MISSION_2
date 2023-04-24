@@ -14,21 +14,45 @@
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Libellé" Margin="30,0,0,0"/>
-                <TextBox x:Name="txtLibelle" Margin="50,0,0,0" Width="60"/>
-
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Nom" Margin="30,0,0,0"/>
                 <TextBox x:Name="txtNom" Margin="50,0,0,0" Width="60"/>
 
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Prenom" Margin="30,0,0,0"/>
+                <TextBlock Text="Prénom" Margin="30,0,0,0"/>
                 <TextBox x:Name="txtPrenom" Margin="50,0,0,0" Width="60"/>
 
             </StackPanel>
-            
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Adresse" Margin="30,0,0,0"/>
+                <TextBox x:Name="txtAdresse" Margin="50,0,0,0" Width="60"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="CP" Margin="30,0,0,0"/>
+                <TextBox x:Name="txtCP" Margin="50,0,0,0" Width="60"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Adresse" Margin="30,0,0,0"/>
+                <TextBox x:Name="txtAdresse" Margin="50,0,0,0" Width="60"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Adresse" Margin="30,0,0,0"/>
+                <TextBox x:Name="txtAdresse" Margin="50,0,0,0" Width="60"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Ville" Margin="30,0,0,0"/>
+                <TextBox x:Name="txtVille" Margin="50,0,0,0" Width="60"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Date d'embauche" Margin="30,0,0,0"/>
+                <TextBox x:Name="txtDatedembauche" Margin="50,0,0,0" Width="60"/>
+
+            </StackPanel>
             <Button x:Name="btnValider" Content="Modifier" Width="50" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>
