@@ -8,15 +8,15 @@
         Title="service_visiteur" Height="450" Width="800">
     <Grid Margin="0,0,0,0">
 
-        <Menu DockPanel.Dock="Bottom" x:Name="DckMenu" Margin="0,0,0,415" >
+        <Menu DockPanel.Dock="Bottom" x:Name="DckMenu" Margin="0,0,0,415" Foreground="#FFC52D2D" >
             <MenuItem Header="_Fichier">
                 <MenuItem Header="_Quitter"/>
             </MenuItem>
 
             <MenuItem Header="_tools">
                 <MenuItem Header="_Recharger" Click="RechargerMenue" />
-                <MenuItem Header="_Modifier" Click="modifierMenue" />
                 <MenuItem Header="_Ajouter" Click="AjouterMenue" />
+                <MenuItem Header="MenuItem" Click="Modif_menue"/>
             </MenuItem>
 
         </Menu>
@@ -24,14 +24,14 @@
 
 
 
-        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="373" VerticalAlignment="Top" Margin="0,24,0,0" >
+        <DataGrid Name="DG1" ItemsSource="{Binding}" AutoGenerateColumns="False" Height="400" VerticalAlignment="Top" Margin="0,24,0,0" Foreground="#FF100F0F" BorderBrush="#FFA8D23E" Background="#FFE0A2A2"  SelectionChanged="DG1_SelectionChanged">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Nom" />
-                <DataGridTextColumn Header="Prénom"/>
+                <DataGridTextColumn Header="Visiteurs" Binding="{Binding id}" />
+                <DataGridTextColumn Header="Prénom" Binding="{Binding prenom}"/>
                 <!--The Email property contains a URI.  For example "mailto:lucy0@adventure-works.com"-->
-                <DataGridTextColumn Header="Adresse"  />
-                <DataGridTextColumn Header="Code postale"  />
-                <DataGridTextColumn Header="Ville" />
+                <DataGridTextColumn Header="Adresse"  Binding="{Binding adresse}" />
+                <DataGridTextColumn Header="Code postale" Binding="{Binding cp}" />
+                <DataGridTextColumn Header="Ville" Binding="{Binding ville}" />
                 
                
             </DataGrid.Columns>

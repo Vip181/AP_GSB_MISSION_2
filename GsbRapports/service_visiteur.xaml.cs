@@ -24,45 +24,39 @@ namespace GsbRapports
     /// </summary>
     public partial class service_visiteur : Window
     {
-        private WebClient wb;
-        private string site;
-        private string ticket;
-        private Secretaire laSecretaire;
-        public service_visiteur()
-            
-        {
-            
-            this.laSecretaire = new Secretaire();
-            this.site = ConfigurationManager.AppSettings.Get("srvLocal");
-            wb =  new WebClient();
-            try
-            {
-                string url = this.site + "http://localhost/restGSB/visiteurs?ticket=4nblbv5zttybtvd3ygx";
-                string reponse; // la réponse retournée  par le serveur
-                /* Création de la requête*/
-             
-                                         
-                /*Appel à l'objet wb pour récupérer le résultat de la requête*/
-                reponse = this.wb.DownloadString(url);
-                /* récupération, après désérialisation et conversion*/
-                this.ticket = (string)JsonConvert.DeserializeObject(reponse);
-                 List<string> list = new List<string>();
-                list.Add(reponse);
-                }
-            catch(Exception ex) 
-            {
-               MessageBox.Show(Convert.ToString(ex), "error", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
 
-            }
-            
+        private WebClient wb;
+
+
+        private Secretaire laSecretaire;
+        private string site;
+
+
+        public service_visiteur (Secretaire s, string site, WebClient wb)
+        {
+            InitializeComponent();
+            this.wb = wb;
+            this.laSecretaire = s;
+            this.site = site;
+            /* Construction de la requete get*/
+            string url = this.site + "visiteurs?ticket=" + this.laSecretaire.getHashTicketMdp();
+            /* récupération des données du serveur*/
+            string data = this.wb.DownloadString(url);
+            /* utilisation d'un objet dynamic pour séparer le ticket des familles*/
+            dynamic d = JsonConvert.DeserializeObject(data);
+            string t = d.ticket;
+            string visiteur = d.visiteurs.ToString();
+            /* convertit le json en liste de familles */
+            List<Visiteur> l = JsonConvert.DeserializeObject<List<Visiteur>>(visiteur);
+            /* On bind le datagrid à la liste des familles*/
+            this.DG1.ItemsSource = l;
+            /*On met à jour la secrétaire avec le nouveau ticket*/
+            this.laSecretaire.ticket = t;
+        }
+
+
 
       
-        private void modifierMenue(object sender, RoutedEventArgs e)
-        {
-            Modifier_visiteur form2 = new Modifier_visiteur();
-            form2.Show();
-        }
 
         private void RechargerMenue(object sender, RoutedEventArgs e)
         {
@@ -78,5 +72,21 @@ namespace GsbRapports
         {
             this.Close();
         }
+
+        private void DG1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+      
+        
+
+        private void Modif_menue(object sender, RoutedEventArgs e)
+        {
+            Modifier_visiteur form2 = new Modifier_visiteur();
+            form2.Show();
+
+        }
     }
-}
+
+ }

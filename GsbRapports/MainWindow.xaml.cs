@@ -118,7 +118,7 @@ namespace GsbRapports
 
         private void MenuItem_Click_3(object sender, RoutedEventArgs e)
         {
-            service_visiteur form = new service_visiteur();
+            service_visiteur form = new service_visiteur(this.laSecretaire, this.site, this.wb);
             form.ShowDialog();
         }
     }
